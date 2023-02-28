@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.profileContainer {
+  width: 800px;
+  height: 600px;
+  background: rgb(255, 185, 33);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileContent {
+  width: 725px;
+  height: 450px;
+  position: relative;
+  top: -35px;
+  background: rgb(255, 255, 255);
+  border-radius: 20px;
+}
+
+.profileContentWrapper {
+  text-align: center;
+  margin: 27px 0px;
+}
+
+.imageThumbnail {
+  width: 170px;
+  position: relative;
+  top: -50px;
+}
+
+.profileTitle h3 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 450px) {
+}

@@ -1,0 +1,41 @@
+.formContainer {
+  width: 400px;
+  padding: 3rem 1rem;
+  border: 2px solid rgb(255, 185, 33);
+  border-radius: 20px;
+  background: #fff;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.backgroundImage {
+  z-index: -2;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+@media screen and (max-width: 450px) {
+  .formContainer {
+    width: 300px;
+    padding: 1rem 1rem;
+    border: 2px solid rgb(255, 185, 33);
+    border-radius: 20px;
+  }
+
+  .backgroundImage {
+    z-index: -2;
+    position: absolute;
+    width: 100vh;
+    height: 100vw;
+    rotate: 90deg;
+  }
+}
