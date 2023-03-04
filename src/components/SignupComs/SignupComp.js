@@ -3,8 +3,32 @@ import { Form, Image, Button } from "react-bootstrap";
 import Logo from "../../images/SignLogo.WebP";
 import SignupStyle from "./SignupComp.module.css";
 import SignBG from "../../images/SignBackground.WebP";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import * as Yup from "yup";
+import { useFormik } from "formik";
 
 const SignupComp = () => {
+  const formik = useFormik({
+    initialValues: {
+      fullname: "",
+      email: "",
+      password: "",
+      confPassword: "",
+      role: "",
+      imageURL: "",
+      phoneNumber: "",
+    },
+    validationSchema: Yup.object({
+      fullname: Yup.string().required("Username is required"),
+      email: Yup.string().required("Email is required"),
+      password: Yup.string().required("Password is required"),
+      confPassword: Yup.string().required("Password confirmation is required"),
+      role: Yup.string().required("Role is required"),
+      imageURL: Yup.string().required("Image URL is required"),
+      phoneNumber: Yup.string().required("Phone number is required"),
+    }),
+  });
   return (
     <>
       <div className={SignupStyle.container}>
@@ -34,7 +58,7 @@ const SignupComp = () => {
                 controlId="formBasicPassword"
               >
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" />
+                <Form.Control type="password" autoComplete="false" />
               </Form.Group>
               <Form.Group
                 className="mb-3 text-start"

@@ -1,16 +1,16 @@
 import { React } from "react";
-import { Container, Image, Button } from "react-bootstrap";
-import testImageProfile from "../../images/FriedEgg.jpg";
+import { Image, Button } from "react-bootstrap";
 import profileCardStyle from "./CardProfile.module.css";
+import dummyProfile from "../../images/SignLogo.WebP";
 
 const CardProfile = () => {
   return (
     <>
-      <Container className={profileCardStyle.container}>
+      <div className={profileCardStyle.container}>
         <div className={profileCardStyle.profileContainer}>
-          <div className={profileCardStyle.profileTitle}>
+          <div className={profileCardStyle}>
             <Image
-              src={testImageProfile}
+              src={dummyProfile}
               className={profileCardStyle.imageThumbnail}
               roundedCircle
             />
@@ -18,28 +18,34 @@ const CardProfile = () => {
           <div className={profileCardStyle.profileContent}>
             <div className={profileCardStyle.profileContentWrapper}>
               <div>
-                <h2 className="fw-bold fs-4">Name</h2>
+                <h5 className="fw-bold ">Name</h5>
                 <p className="fw-bold text-secondary">Test</p>
               </div>
               <div>
-                <h2 className="fw-bold fs-4">Email</h2>
+                <h5 className="fw-bold ">Email</h5>
                 <p className="fw-bold text-secondary">Test</p>
               </div>
               <div>
-                <h2 className="fw-bold fs-4">Role</h2>
+                <h5 className="fw-bold">Role</h5>
                 <p className="fw-bold text-secondary">Test</p>
               </div>
               <div>
-                <h2 className="fw-bold fs-4">Phone Number</h2>
+                <h5 className="fw-bold">Phone Number</h5>
                 <p className="fw-bold text-secondary">Test</p>
               </div>
-              <Button variant="warning" size="lg" className="mt-4">
+            </div>
+            <div className="text-center pt-5">
+              <Button
+                variant="outline-warning"
+                size="md"
+                className="px-4 py-2 text-dark border-dark"
+              >
                 Edit Profile
               </Button>
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </>
   );
 };

@@ -23,6 +23,27 @@
   height: 100vh;
 }
 
+.errorStyled {
+  height: 15px;
+}
+
+@media screen and (max-width: 992px) {
+  .formContainer {
+    width: 300px;
+    padding: 1rem 1rem;
+    border: 2px solid rgb(255, 185, 33);
+    border-radius: 20px;
+  }
+
+  .backgroundImage {
+    z-index: -2;
+    position: absolute;
+    width: 100vh;
+    height: 100vw;
+    rotate: 90deg;
+  }
+}
+
 @media screen and (max-width: 450px) {
   .formContainer {
     width: 300px;
