@@ -58,9 +58,7 @@ const CardUser = () => {
         <label htmlFor={props.id || props.name}>{label}</label>
         <select className="form-select" {...field} {...props} />
         {meta.touched && meta.error ? (
-          <div className={cardUserStyle.error}>
-            {meta.error} Admin can't change another Admin role
-          </div>
+          <div className={cardUserStyle.error}>{meta.error}</div>
         ) : null}
       </div>
     );
@@ -164,7 +162,7 @@ const CardUser = () => {
                       enableReinitialize={true}
                       validationSchema={Yup.object({
                         role: Yup.string().oneOf(
-                          ["admin", "general"],
+                          ["admin", "user"],
                           "Invalid Job Type"
                         ),
                       })}
