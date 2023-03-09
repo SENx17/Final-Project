@@ -13,6 +13,7 @@ import HomePage from "./pages/HomePage";
 import RecipePage from "./pages/RecipePage";
 import FavoritePage from "./pages/FavoritePage";
 import AddRecipePage from "./pages/AddRecipePage";
+import ListUserPage from "./pages/ListUserPage";
 
 function App() {
   const router = createBrowserRouter(
@@ -24,6 +25,7 @@ function App() {
         <Route path="/addRecipe" element={<AddRecipePage />} />
         <Route path="/favorite" element={<FavoritePage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/listUser" element={<ListUserPage />} />
         <Route path="/signup" element={<SignupComp />} />
       </Route>
     )

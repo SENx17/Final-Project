@@ -1,0 +1,9 @@
+.imageSize {
+  width: 100%;
+  object-fit: cover;
+  height: 220px;
+}
+
+.likesText {
+  font-size: 12px;
+}

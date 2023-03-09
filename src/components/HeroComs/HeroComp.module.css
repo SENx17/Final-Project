@@ -1,8 +1,7 @@
 .heroContainer {
-  position: absolute;
-  top: 72px;
-  width: 100vw;
-  max-height: 90vh;
+  width: 100%;
+  height: 650px;
+  object-fit: cover;
   z-index: -1;
 }
 
@@ -15,7 +14,7 @@
 .heroText h1 {
   font-size: 60px;
   font-weight: 700;
-  line-height: 87px;
+  line-height: 80px;
 }
 
 .smallHeroText {
@@ -24,25 +23,23 @@
 }
 
 .smallHeroText p {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 300;
-  line-height: 16px;
+  line-height: 19px;
 }
 
 .heroButton {
   position: absolute;
   left: 57px;
-  bottom: -150px;
+  bottom: -160px;
   font-weight: 700;
   border: 2px solid black;
 }
 
 @media only screen and (max-width: 992px) {
   .heroContainer {
-    position: absolute;
-    top: 72px;
-    width: 100vw;
-    max-height: 65vh;
+    width: 100%;
+    height: 450px;
   }
 
   .heroTextContainter {
@@ -79,10 +76,8 @@
 
 @media only screen and (max-width: 768px) {
   .heroContainer {
-    position: absolute;
-    top: 72px;
-    width: 100vw;
-    max-height: 50vh;
+    width: 100%;
+    max-height: 350px;
   }
 
   .heroTextContainter {
@@ -92,7 +87,7 @@
   }
 
   .heroText h1 {
-    font-size: 35px;
+    font-size: 40px;
     font-weight: 700;
     line-height: 50px;
   }
@@ -103,15 +98,15 @@
   }
 
   .smallHeroText p {
-    font-size: 10px;
+    font-size: 11.2px;
     font-weight: 300;
-    line-height: 8px;
+    line-height: 12px;
   }
 
   .heroButton {
     position: absolute;
     left: 60px;
-    bottom: -105px;
+    bottom: -120px;
     font-size: 9px;
     font-weight: 700;
     border: 2px solid black;
@@ -120,22 +115,20 @@
 
 @media only screen and (max-width: 600px) {
   .heroContainer {
-    position: absolute;
-    top: 72px;
-    width: 100vw;
-    max-height: 30vh;
+    width: 100%;
+    max-height: 220px;
   }
 
   .heroTextContainter {
     position: absolute;
-    top: 105px;
-    left: 20px;
+    top: 90px;
+    left: 15px;
   }
 
   .heroText h1 {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: 700;
-    line-height: 25px;
+    line-height: 40px;
   }
 
   .smallHeroText {
@@ -144,21 +137,21 @@
   }
 
   .smallHeroText p {
-    font-size: 5.9px;
+    font-size: 8px;
     font-weight: 300;
-    line-height: 0px;
+    line-height: 7px;
   }
 
   .heroButton {
     position: absolute;
     left: 48px;
-    bottom: -60px;
+    bottom: -80px;
     font-size: 5px;
     font-weight: 700;
     border: 1px solid black;
     border-radius: 4px;
-    width: 50px;
-    height: 15px;
+    width: 60px;
+    height: 17px;
     padding: 0;
     margin: 0;
   }

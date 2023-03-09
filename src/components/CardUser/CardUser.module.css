@@ -1,0 +1,15 @@
+.imagePosition {
+  display: flex;
+  justify-content: center;
+}
+
+div p {
+  font-size: 10px;
+}
+
+.imageSize {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 50%;
+}

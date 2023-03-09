@@ -46,6 +46,11 @@ const SigninComp = () => {
           localStorage.setItem("Name", name);
           alert("Login Success");
           navigate("/home");
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          alert(err.response.data.message);
+          setIsLoading(false);
         });
     },
   });
