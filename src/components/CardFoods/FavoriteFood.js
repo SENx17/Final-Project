@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Col, Card, Button } from "react-bootstrap";
+import React from "react";
+import { Col, Card } from "react-bootstrap";
 import cardFavoriteStyle from "./FavoriteFood.module.css";
 
 const CardFood = ({ name, imageUrl, totalLikes, rating }) => {
@@ -18,13 +18,13 @@ const CardFood = ({ name, imageUrl, totalLikes, rating }) => {
             <div>
               <h6 className="fw-bold text-center text-truncate px-2">{name}</h6>
             </div>
-            <div className="d-flex gap-3 ps-2">
+            <div className="d-flex gap-3 ps-2 pb-2">
               <span className="d-flex align-items-center text-secondary fw-lighter gap-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
                   height="16"
-                  fill="gray"
+                  fill="red"
                   className="bi bi-heart-fill"
                   viewBox="0 0 16 16"
                 >
@@ -50,11 +50,6 @@ const CardFood = ({ name, imageUrl, totalLikes, rating }) => {
               </span>
             </div>
           </Card.Body>
-          <Card.Footer className="text-center">
-            <Button variant="warning border-secondary sm" className="fw-light">
-              See details
-            </Button>
-          </Card.Footer>
         </Card>
       </Col>
     </>
