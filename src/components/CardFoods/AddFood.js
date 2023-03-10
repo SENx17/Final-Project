@@ -1,6 +1,5 @@
 import React from "react";
-import { Button, Form, Card } from "react-bootstrap";
-import { Formik, Field, FieldArray } from "formik";
+import { Formik, Form, Field, FieldArray, useField } from "formik";
 import * as Yup from "yup";
 import addFoodStyle from "./AddFood.module.css";
 import { useNavigate } from "react-router-dom";
@@ -28,9 +27,8 @@ const AddFood = () => {
         }
       )
       .then((response) => {
-        response
-          ? alert("Add more food recipe?") && navigate("/addRecipe")
-          : alert("Food added to our recipe page") && navigate("/recipe");
+        alert("Food added to our recipe page");
+        navigate("/recipe");
       })
       .catch((err) => {
         console.log(err);
@@ -38,100 +36,90 @@ const AddFood = () => {
       });
   };
 
-  //   const FormInput = ({ label, ...props }) => {
-  //     const [field, meta] = useField(props);
-  //     return (
-  //       <div className="row mb-3">
-  //         <div className="col-lg-12">
-  //           <label
-  //             className="form-label fw-bold mb-1"
-  //             htmlFor={props.id || props.name}
-  //           >
-  //             {label}
-  //           </label>
-  //           <FormControl {...field} {...props} />
-  //           {meta.touched && meta.error ? (
-  //             <div className="text-danger">{meta.error}</div>
-  //           ) : null}
-  //         </div>
-  //       </div>
-  //     );
-  //   };
+  const Input = ({ label, ...props }) => {
+    const [field, meta] = useField(props);
+    return (
+      <div className="row mb-3">
+        <div className="col-lg-12">
+          <label className="form-label mb-3" htmlFor={props.id || props.name}>
+            {label}
+          </label>
+          <input className="form-control" {...field} {...props} />
+          {meta.touched && meta.error ? (
+            <div className="text-danger">{meta.error}</div>
+          ) : null}
+        </div>
+      </div>
+    );
+  };
   return (
     <>
-      <Formik
-        initialValues={{
-          name: "",
-          description: "",
-          ingredients: [""],
-        }}
-        validationSchema={Yup.object({
-          name: Yup.string().required("Required"),
-          description: Yup.string().required("Required"),
-        })}
-        onSubmit={handleSubmit}
-      >
-        <Form className={addFoodStyle.container}>
-          <Card.Title className="text-center mb-4 fs-4 fw-bold">
-            Add Recipe
-          </Card.Title>
-          <Form.Group controlId="name" className="mb-3">
-            <Form.Label>Name</Form.Label>
-            <Form.Control type="text" />
-          </Form.Group>
-          <Form.Group controlId="description" className="mb-3">
-            <Form.Label>Description</Form.Label>
-            <Form.Control as="textarea" />
-          </Form.Group>
-          <Form.Group controlId="imageUrl" className="mb-3">
-            <Form.Label>Food Image URL</Form.Label>
-            <Form.Control type="text" />
-          </Form.Group>
+      <div className={addFoodStyle.container}>
+        <Formik
+          initialValues={{
+            name: "",
+            description: "",
+            imageUrl: "",
+            ingredients: [""],
+          }}
+          validationSchema={Yup.object({
+            name: Yup.string().required("Name is required"),
+            description: Yup.string().required("Description is required"),
+            imageUrl: Yup.string().required("Image URL is required"),
+          })}
+          onSubmit={handleSubmit}
+        >
+          <Form>
+            <h1 className="text-center mb-4 fs-4 fw-bold">Add Recipe</h1>
+            <Input label="Name" name="name" type="text" />
+            <Input label="Description" name="description" type="text" />
+            <Input label="Image URL" name="imageUrl" type="text" />
 
-          <Form.Label>Ingredients</Form.Label>
-          <FieldArray name="ingredients">
-            {(fieldArrayProps) => {
-              const { push, remove, form } = fieldArrayProps;
-              const { values } = form;
-              const { ingredients } = values;
-              return (
-                <div>
-                  {ingredients.map((ingredient, i) => (
-                    <div key={i} className="d-flex input-group mb-1">
-                      <Field
-                        name={`ingredients[${i}]`}
-                        placeholder={`Ingredient ${i + 1}`}
-                        className="form-control"
-                      />
-                      {i > 0 && (
+            <div className="form-label">Ingredients</div>
+            <FieldArray name="ingredients">
+              {(fieldArrayProps) => {
+                const { push, remove, form } = fieldArrayProps;
+                const { values } = form;
+                const { ingredients } = values;
+                return (
+                  <div>
+                    {ingredients.map((ingredient, i) => (
+                      <div key={i} className="d-flex input-group mb-1">
+                        <Field
+                          name={`ingredients[${i}]`}
+                          placeholder={`Ingredient ${i + 1}`}
+                          className="form-control"
+                        />
+                        {i > 0 && (
+                          <button
+                            type="button"
+                            className="btn btn-danger fw-bold"
+                            onClick={() => remove(i)}
+                          >
+                            -
+                          </button>
+                        )}
                         <button
                           type="button"
-                          className="btn btn-danger fw-bold"
-                          onClick={() => remove(i)}
+                          className="btn btn-success fw-bold"
+                          onClick={() => push("")}
                         >
-                          -
+                          +
                         </button>
-                      )}
-                      <button
-                        type="button"
-                        className="btn btn-success fw-bold"
-                        onClick={() => push("")}
-                      >
-                        +
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              );
-            }}
-          </FieldArray>
-          <div className="text-center mt-4">
-            <Button variant="success" className="fw-light">
-              Add <span className="fw-bold">+</span>
-            </Button>
-          </div>
-        </Form>
-      </Formik>
+                      </div>
+                    ))}
+                  </div>
+                );
+              }}
+            </FieldArray>
+            <div className="text-center mt-4">
+              <button className=" btn btn-success fw-light">
+                Add <span className="fw-bold">+</span>
+              </button>
+            </div>
+          </Form>
+        </Formik>
+      </div>
     </>
   );
 };

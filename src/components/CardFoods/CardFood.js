@@ -63,6 +63,27 @@ const CardFood = () => {
     }
   };
 
+  const handleDeleteFood = (id) => {
+    if (window.confirm("Delete this food ?")) {
+      axios
+        .delete(`${process.env.REACT_APP_BASEURL}/api/v1/delete-food/${id}`, {
+          headers: {
+            Authorization: `Bearer ${getJWT}`,
+            apiKey: process.env.REACT_APP_APIKEY,
+          },
+        })
+        .then((response) => {
+          getFoods().then((response) => {
+            setFoods(response.data);
+          });
+          alert("Food deleted");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
   return (
     <React.Fragment>
       {foods &&
@@ -123,6 +144,9 @@ const CardFood = () => {
                           variant="danger border-secondary"
                           className="fw-light"
                           size="sm"
+                          onClick={() => {
+                            handleDeleteFood(result.id);
+                          }}
                         >
                           Delete
                         </Button>
