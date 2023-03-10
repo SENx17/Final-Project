@@ -23,7 +23,7 @@ const RecipePage = () => {
         <h1 className="mb-4 fw-bold text-center text-warning">
           Favorite Foods
         </h1>
-        <Row className="g-5" xs={1} sm={1} md={3} lg={6}>
+        <Row className="g-5" xs={1} sm={1} md={2} lg={3} xl={5} xxl={6}>
           {allFavorite.map((listFavorite) => (
             <FavoriteFood key={listFavorite.id} {...listFavorite} />
           ))}

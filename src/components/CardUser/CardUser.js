@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Button, Card, Col, Modal, Image, FormGroup } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Modal,
+  Image,
+  FormGroup,
+  FormSelect,
+} from "react-bootstrap";
 import defaultProfile from "../../images/Profile.WebP";
 import cardUserStyle from "./CardUser.module.css";
 import { Form, Formik, useField } from "formik";
@@ -56,7 +64,7 @@ const CardUser = () => {
     return (
       <div className="mb-3">
         <label htmlFor={props.id || props.name}>{label}</label>
-        <select className="form-select" {...field} {...props} />
+        <FormSelect {...field} {...props} />
         {meta.touched && meta.error ? (
           <div className={cardUserStyle.error}>{meta.error}</div>
         ) : null}
@@ -163,7 +171,7 @@ const CardUser = () => {
                       validationSchema={Yup.object({
                         role: Yup.string().oneOf(
                           ["admin", "user"],
-                          "Invalid Job Type"
+                          "Select a valid role!"
                         ),
                       })}
                       onSubmit={handleSubmit}

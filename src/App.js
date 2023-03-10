@@ -20,13 +20,13 @@ function App() {
     createRoutesFromElements(
       <Route>
         <Route path="/" element={<SigninPage />} />
+        <Route path="/signup" element={<SignupComp />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/recipe" element={<RecipePage />} />
         <Route path="/addRecipe" element={<AddRecipePage />} />
         <Route path="/favorite" element={<FavoritePage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/listUser" element={<ListUserPage />} />
-        <Route path="/signup" element={<SignupComp />} />
       </Route>
     )
   );

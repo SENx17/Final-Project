@@ -110,11 +110,32 @@ const CardFood = () => {
                     </div>
                   </Card.Body>
                   <Card.Footer className="text-center">
+                    {localStorage.getItem("Role") === "admin" ? (
+                      <div className="d-flex gap-2 justify-content-center mb-1">
+                        <Button
+                          variant="success border-secondary"
+                          className="fw-light"
+                          size="sm"
+                        >
+                          Edit
+                        </Button>
+                        <Button
+                          variant="danger border-secondary"
+                          className="fw-light"
+                          size="sm"
+                        >
+                          Delete
+                        </Button>
+                      </div>
+                    ) : null}
+
                     <Button
-                      variant="warning border-secondary sm"
+                      style={{ width: "110px" }}
+                      variant="warning border-secondary"
+                      size="sm"
                       className="fw-light"
                     >
-                      See details
+                      See detail
                     </Button>
                   </Card.Footer>
                 </Card>

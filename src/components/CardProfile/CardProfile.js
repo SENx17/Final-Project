@@ -1,17 +1,69 @@
 import React, { useState, useEffect } from "react";
-import { Image, Button } from "react-bootstrap";
+import { Image, Button, Modal, Form, FormGroup } from "react-bootstrap";
 import profileCardStyle from "./CardProfile.module.css";
 import profilePageBg from "../../images/ProfilePageBackground.WebP";
 import getUserLogin from "../../api/getUserLoginAPI";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import axios from "axios";
 
 const CardProfile = () => {
   const [userLogin, setUserLogin] = useState("");
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     getUserLogin().then((response) => {
       setUserLogin(response.user);
     });
   }, []);
+
+  const formik = useFormik({
+    initialValues: {
+      name: userLogin.name,
+      email: userLogin.email,
+      phoneNumber: userLogin.phoneNumber,
+      profilePictureUrl: userLogin.profilePictureUrl,
+    },
+    enableReinitialize: true,
+    validationSchema: Yup.object({
+      name: Yup.string().required("Name is required"),
+      email: Yup.string()
+        .email("Input valid email address")
+        .required("Email is required"),
+      phoneNumber: Yup.number().required("Phone number is required"),
+      profilePictureUrl: Yup.string().required("Profile URL is required"),
+    }),
+    onSubmit: (values) => {
+      const getJWT = localStorage.getItem("Token");
+      axios
+        .post(
+          `${process.env.REACT_APP_BASEURL}/api/v1/update-profile`,
+          {
+            name: values.name,
+            email: values.email,
+            phoneNumber: values.phoneNumber,
+            profilePictureUrl: values.profilePictureUrl,
+          },
+          {
+            headers: {
+              apiKey: process.env.REACT_APP_APIKEY,
+              Authorization: `Bearer ${getJWT}`,
+            },
+          }
+        )
+        .then((response) => {
+          getUserLogin().then((response) => {
+            setUserLogin(response.user);
+          });
+          alert("Profile change has been made");
+        })
+        .catch((err) => {
+          console.log(err);
+          alert("");
+        });
+    },
+  });
+
   return (
     <>
       <div className={profileCardStyle.container}>
@@ -76,9 +128,64 @@ const CardProfile = () => {
                 variant="outline-warning"
                 size="md"
                 className="px-4 py-2 text-dark border-dark"
+                onClick={() => setShow(true)}
               >
                 Edit Profile
               </Button>
+              <Modal show={show} centered onHide={() => setShow(false)}>
+                <Modal.Header closeButton>
+                  <Modal.Title>Edit Role</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <Form onSubmit={formik.handleSubmit}>
+                    <FormGroup controlId="name" className="mb-3">
+                      <Form.Label>Name</Form.Label>
+                      <Form.Control
+                        type="text"
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                        value={formik.values.name}
+                      />
+                    </FormGroup>
+                    <FormGroup controlId="email" className="mb-3">
+                      <Form.Label>Email</Form.Label>
+                      <Form.Control
+                        type="text"
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                        value={formik.values.email}
+                      />
+                    </FormGroup>
+                    <FormGroup controlId="phoneNumber" className="mb-3">
+                      <Form.Label>Phone Number</Form.Label>
+                      <Form.Control
+                        type="number"
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                        value={formik.values.phoneNumber}
+                      />
+                    </FormGroup>
+                    <FormGroup controlId="profilePictureUrl" className="mb-3">
+                      <Form.Label>Profile Picture URL</Form.Label>
+                      <Form.Control
+                        type="text"
+                        onBlur={formik.handleBlur}
+                        onChange={formik.handleChange}
+                        value={formik.values.profilePictureUrl}
+                      />
+                    </FormGroup>
+                    <div className="text-center py-2">
+                      <Button
+                        type="submit"
+                        variant="primary"
+                        onClick={() => setShow(false)}
+                      >
+                        Save Changes
+                      </Button>
+                    </div>
+                  </Form>
+                </Modal.Body>
+              </Modal>
             </div>
           </div>
         </div>

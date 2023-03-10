@@ -26,7 +26,9 @@ const SignupComp = () => {
     },
     validationSchema: Yup.object({
       name: Yup.string().required("Username is required"),
-      email: Yup.string().required("Email is required"),
+      email: Yup.string()
+        .email("Input valid email address")
+        .required("Email is Required"),
       password: Yup.string().required("Password is required"),
       passwordRepeat: Yup.string().required(
         "Password confirmation is required"
