@@ -18,7 +18,7 @@ const AboutComp = () => {
             className="d-flex justify-content-center align-items-center mx-auto mt-3 gy-4"
           >
             <Col>
-              <div className="ps-4">
+              <div className="px-4 font-monospace" align="justify">
                 <p className={aboutStyle.aboutText}>
                   Welcome to our food recipe website! We are a team of food
                   enthusiasts who are passionate about cooking and sharing

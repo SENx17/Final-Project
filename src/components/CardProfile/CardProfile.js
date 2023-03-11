@@ -6,10 +6,15 @@ import getUserLogin from "../../api/getUserLoginAPI";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import defaultProfile from "../../images/Profile.WebP";
 
 const CardProfile = () => {
   const [userLogin, setUserLogin] = useState("");
   const [show, setShow] = useState(false);
+
+  const imageError = (e) => {
+    e.target.src = defaultProfile;
+  };
 
   useEffect(() => {
     getUserLogin().then((response) => {
@@ -74,8 +79,13 @@ const CardProfile = () => {
         <div className={profileCardStyle.profileContainer}>
           <div className={profileCardStyle}>
             <Image
-              src={userLogin.profilePictureUrl}
+              src={
+                userLogin.profilePictureUrl
+                  ? userLogin.profilePictureUrl
+                  : defaultProfile
+              }
               className={profileCardStyle.imageThumbnail}
+              onError={imageError}
               roundedCircle
             />
           </div>

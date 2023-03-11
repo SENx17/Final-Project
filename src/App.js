@@ -14,6 +14,7 @@ import RecipePage from "./pages/RecipePage";
 import FavoritePage from "./pages/FavoritePage";
 import AddRecipePage from "./pages/AddRecipePage";
 import ListUserPage from "./pages/ListUserPage";
+import FoodDetailPage from "./pages/FoodDetailPage";
 
 function App() {
   const router = createBrowserRouter(
@@ -24,6 +25,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="/recipe" element={<RecipePage />} />
         <Route path="/addRecipe" element={<AddRecipePage />} />
+        <Route path="/detail/:ID" element={<FoodDetailPage />} />
         <Route path="/favorite" element={<FavoritePage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/listUser" element={<ListUserPage />} />

@@ -26,7 +26,6 @@ const CardUser = () => {
   useEffect(() => {
     getAllUser().then((response) => {
       setAllUser(response.data);
-      console.log(response.data);
     });
   }, []);
 

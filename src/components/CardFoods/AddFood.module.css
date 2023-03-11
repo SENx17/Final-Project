@@ -1,6 +1,25 @@
 .container {
-  width: 40%;
+  width: 600px;
   border: 2px solid orange;
   padding: 45px 30px;
   border-radius: 20px;
+  background: white;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 500px;
+    border: 2px solid orange;
+    padding: 45px 30px;
+    border-radius: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    width: 350px;
+    border: 2px solid orange;
+    padding: 45px 30px;
+    border-radius: 20px;
+  }
 }
