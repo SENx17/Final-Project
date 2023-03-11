@@ -56,7 +56,6 @@ const FoodDetail = () => {
       })
       .then((response) => {
         setRate(response.data.data);
-        console.log(response.data.data);
       })
       .catch((err) => {
         console.log(err);
@@ -129,7 +128,8 @@ const FoodDetail = () => {
             variant="top"
             src={foods.imageUrl}
             style={{
-              width: "180px",
+              width: "152px",
+              height: "150px",
               margin: "20px auto",
               borderRadius: "50%",
               border: "2px solid orange",
