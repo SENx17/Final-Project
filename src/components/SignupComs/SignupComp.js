@@ -151,9 +151,9 @@ const SignupComp = () => {
                   onChange={formik.handleChange}
                   value={formik.values.role}
                 >
-                  <option>Select Role</option>
-                  <option>Admin</option>
-                  <option>User</option>
+                  <option value="">Select Role</option>
+                  <option value="admin">Admin</option>
+                  <option value="user">User</option>
                 </Form.Select>
                 <div className={SignupStyle.errorStyled}>
                   <Form.Text style={errorStyle}>
