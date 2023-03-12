@@ -18,6 +18,7 @@ import * as Yup from "yup";
 
 import defaultProfile from "../../images/Profile.WebP";
 
+const errorStyle = { color: "red", fontSize: "12px" };
 const FoodDetail = () => {
   const [foods, setFoods] = useState([]);
   const [rate, setRate] = useState([]);
@@ -196,6 +197,9 @@ const FoodDetail = () => {
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                       />
+                      <Form.Text style={errorStyle}>
+                        {formik.touched.rating && formik.errors.rating}
+                      </Form.Text>
                     </div>
                     <div className="py-2 form-group" id="review">
                       <div className="form-label">Write Your Review</div>
@@ -206,6 +210,9 @@ const FoodDetail = () => {
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                       />
+                      <Form.Text style={errorStyle}>
+                        {formik.touched.review && formik.errors.review}
+                      </Form.Text>
                     </div>
                     <div className="text-center py-2">
                       <button type="submit" className="btn btn-success">
