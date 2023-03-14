@@ -233,25 +233,27 @@ const FoodDetail = () => {
             <Card className="mx-5 mb-4" key={res.id}>
               <Card.Body>
                 <Row className="gap-3">
-                  <Col
-                    md={4}
-                    sm={12}
-                    className="d-flex align-items-center justify-content-center"
-                  >
-                    <Image
-                      src={
-                        res.user.profilePictureUrl
-                          ? res.user.profilePictureUrl
-                          : defaultProfile
-                      }
-                      onError={imageError}
-                      style={{
-                        width: "82px",
-                        height: "80px",
-                        border: "2px solid orange",
-                      }}
-                      roundedCircle
-                    />
+                  <Col md={4} sm={12} className="d-flex justify-content-center">
+                    <Row className="d-flex justify-content-center overflow-hidden">
+                      <Image
+                        src={
+                          res.user.profilePictureUrl
+                            ? res.user.profilePictureUrl
+                            : defaultProfile
+                        }
+                        onError={imageError}
+                        style={{
+                          width: "80px",
+                          height: "80px",
+                          padding: "0",
+                          border: "2px solid orange",
+                        }}
+                        roundedCircle
+                      />
+                      <Card.Text className="fw-bold text-center">
+                        {res.user.name}
+                      </Card.Text>
+                    </Row>
                   </Col>
                   <Col
                     md={4}
