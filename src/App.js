@@ -1,4 +1,5 @@
 import "./App.css";
+import { useEffect } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -17,6 +18,16 @@ import ListUserPage from "./pages/ListUserPage";
 import FoodDetailPage from "./pages/FoodDetailPage";
 
 function App() {
+  const clearLocalStorage = () => {
+    localStorage.clear();
+  };
+  useEffect(() => {
+    window.addEventListener("beforeunload", clearLocalStorage);
+    return () => {
+      window.removeEventListener("beforeunload", clearLocalStorage);
+    };
+  }, []);
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
