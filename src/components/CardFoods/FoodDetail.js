@@ -128,9 +128,10 @@ const FoodDetail = () => {
             variant="top"
             src={foods.imageUrl}
             style={{
-              width: "152px",
+              width: "150px",
               height: "150px",
               margin: "20px auto",
+              padding: "0",
               borderRadius: "50%",
               border: "2px solid orange",
             }}
