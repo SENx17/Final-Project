@@ -133,6 +133,7 @@ const FoodDetail = () => {
               margin: "20px auto",
               padding: "0",
               borderRadius: "50%",
+              objectFit: "cover",
               border: "2px solid orange",
             }}
           />
