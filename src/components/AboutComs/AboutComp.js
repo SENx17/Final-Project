@@ -7,10 +7,10 @@ const AboutComp = () => {
   return (
     <>
       <section>
-        <div>
-          <h2 className={aboutStyle.aboutTitle}>- About Us -</h2>
-        </div>
         <div className={aboutStyle.backgroundStyle}>
+          <div>
+            <h2 className={aboutStyle.aboutTitle}>About Us</h2>
+          </div>
           <Row
             xs={1}
             sm={1}

@@ -2,7 +2,19 @@
   width: 100%;
   height: 650px;
   object-fit: cover;
-  z-index: -1;
+}
+
+.heroBlur {
+  position: absolute;
+  bottom: 244px;
+  left: 0;
+  width: 100%;
+  height: 200px; /* adjust the height of the blur as needed */
+  background: linear-gradient(
+    transparent,
+    rgba(0, 0, 0, 0.7)
+  ); /* adjust the colors as needed */
+  pointer-events: none;
 }
 
 .heroTextContainter {
@@ -33,7 +45,7 @@
   left: 57px;
   bottom: -160px;
   font-weight: 700;
-  border: 2px solid black;
+  box-shadow: 0.5px 0.5px 5px 4px #00000075;
 }
 
 @media only screen and (max-width: 992px) {
@@ -70,7 +82,7 @@
     left: 60px;
     bottom: -140px;
     font-weight: 700;
-    border: 2px solid black;
+    box-shadow: 0.5px 0.5px 5px 4px #00000075;
   }
 }
 
@@ -109,7 +121,7 @@
     bottom: -120px;
     font-size: 9px;
     font-weight: 700;
-    border: 2px solid black;
+    box-shadow: 0.5px 0.5px 4px 3px #00000075;
   }
 }
 
@@ -148,7 +160,7 @@
     bottom: -80px;
     font-size: 5px;
     font-weight: 700;
-    border: 1px solid black;
+    box-shadow: 0.5px 0.5px 3px 2px #00000075;
     border-radius: 4px;
     width: 60px;
     height: 17px;

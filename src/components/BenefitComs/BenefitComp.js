@@ -5,9 +5,9 @@ import benefitStyle from "./BenefitComp.module.css";
 const BenefitComp = () => {
   return (
     <>
-      <section>
+      <div className={benefitStyle.containerBenefit}>
         <div>
-          <h2 className={benefitStyle.benefitTitle}>- Benefits With Us -</h2>
+          <h2 className={benefitStyle.benefitTitle}>Benefits With Us</h2>
         </div>
         <Row xs={1} sm={1} md={3} className="mx-auto mt-3 text-center gy-5">
           <Col>
@@ -68,8 +68,7 @@ const BenefitComp = () => {
             </div>
           </Col>
         </Row>
-      </section>
-      <div className={benefitStyle.divider}></div>
+      </div>
     </>
   );
 };

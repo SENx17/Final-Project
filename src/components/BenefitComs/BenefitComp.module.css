@@ -1,6 +1,13 @@
+.containerBenefit {
+  padding: 80px 0;
+  margin: 100px auto;
+  background: #ffe6c7;
+  width: 97%;
+  border-radius: 10px;
+}
+
 .benefitTitle {
   text-align: center;
-  margin: 100px 0px 40px 0px;
   font-size: 35px;
   font-weight: 700;
   color: orange;
@@ -8,7 +15,7 @@
 
 .benefitText {
   font-weight: 600;
-  color: rgb(138, 138, 138);
+  color: rgba(0, 0, 0, 0.7);
   text-shadow: 0px 0px 6px rgba(122, 122, 122, 0.72);
 }
 
@@ -21,7 +28,6 @@
 @media screen and (max-width: 768px) {
   .benefitTitle {
     text-align: center;
-    margin: 50px 0px 20px 0px;
     font-size: 25px;
     font-weight: 700;
     color: orange;

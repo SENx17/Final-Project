@@ -6,6 +6,7 @@ const HeroComp = () => {
   return (
     <>
       <Image src={HeroImage} className={heroStyle.heroContainer} />
+      <div className={heroStyle.heroBlur}></div>
       <div className={heroStyle.heroTextContainter}>
         <div className={heroStyle.heroText}>
           {/* Hero Text */}

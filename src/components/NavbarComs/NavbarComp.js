@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown, Image } from "react-bootstrap";
 import navbarStyle from "./NavbarComp.module.css";
-import Logo from "../../images/SignLogo.WebP";
+import Logo from "../../images/Logo.WebP";
 import { useNavigate } from "react-router-dom";
 
 function NavbarComp() {
@@ -18,14 +18,13 @@ function NavbarComp() {
       >
         <Container>
           <Navbar.Brand>
-            <Image src={Logo} width={80} />
+            <Image src={Logo} width={140} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ms-auto">
               <Nav.Link href="/home">Home</Nav.Link>
               <Nav.Link href="/recipe">Recipe</Nav.Link>
-
               {localStorage.getItem("Role") === "admin" ? (
                 <Nav.Link href="addRecipe">Add Recipe</Nav.Link>
               ) : null}
@@ -43,7 +42,6 @@ function NavbarComp() {
                     List User
                   </NavDropdown.Item>
                 ) : null}
-
                 <NavDropdown.Item
                   onClick={() => {
                     localStorage.removeItem("Token");
