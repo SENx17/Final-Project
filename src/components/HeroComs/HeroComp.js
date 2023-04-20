@@ -1,11 +1,11 @@
 import { React } from "react";
 import heroStyle from "./HeroComp.module.css";
-import { Image, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import HeroImage from "../../images/HeroImage.WebP";
 const HeroComp = () => {
   return (
     <>
-      <Image src={HeroImage} className={heroStyle.heroContainer} />
+      <img src={HeroImage} className={heroStyle.heroContainer} alt="Hero" />
       <div className={heroStyle.heroBlur}></div>
       <div className={heroStyle.heroTextContainter}>
         <div className={heroStyle.heroText}>

@@ -6,7 +6,7 @@
 
 .heroBlur {
   position: absolute;
-  bottom: 244px;
+  bottom: 155px;
   left: 0;
   width: 100%;
   height: 200px; /* adjust the height of the blur as needed */
@@ -48,10 +48,16 @@
   box-shadow: 0.5px 0.5px 5px 4px #00000075;
 }
 
+.imageContainer {
+  width: 100%;
+  height: 650px;
+}
+
 @media only screen and (max-width: 992px) {
   .heroContainer {
     width: 100%;
-    height: 450px;
+    height: 650px;
+    object-fit: cover;
   }
 
   .heroTextContainter {
@@ -90,6 +96,20 @@
   .heroContainer {
     width: 100%;
     max-height: 350px;
+    object-fit: cover;
+  }
+
+  .heroBlur {
+    position: absolute;
+    bottom: 456px;
+    left: 0;
+    width: 100%;
+    height: 200px; /* adjust the height of the blur as needed */
+    background: linear-gradient(
+      transparent,
+      rgba(0, 0, 0, 0.7)
+    ); /* adjust the colors as needed */
+    pointer-events: none;
   }
 
   .heroTextContainter {
@@ -129,6 +149,20 @@
   .heroContainer {
     width: 100%;
     max-height: 220px;
+    object-fit: cover;
+  }
+
+  .heroBlur {
+    position: absolute;
+    bottom: 587px;
+    left: 0;
+    width: 100%;
+    height: 200px; /* adjust the height of the blur as needed */
+    background: linear-gradient(
+      transparent,
+      rgba(0, 0, 0, 0.7)
+    ); /* adjust the colors as needed */
+    pointer-events: none;
   }
 
   .heroTextContainter {
