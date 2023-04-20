@@ -4,19 +4,6 @@
   object-fit: cover;
 }
 
-.heroBlur {
-  position: absolute;
-  bottom: 155px;
-  left: 0;
-  width: 100%;
-  height: 200px; /* adjust the height of the blur as needed */
-  background: linear-gradient(
-    transparent,
-    rgba(0, 0, 0, 0.7)
-  ); /* adjust the colors as needed */
-  pointer-events: none;
-}
-
 .heroTextContainter {
   position: absolute;
   top: 220px;
@@ -99,19 +86,6 @@
     object-fit: cover;
   }
 
-  .heroBlur {
-    position: absolute;
-    bottom: 456px;
-    left: 0;
-    width: 100%;
-    height: 200px; /* adjust the height of the blur as needed */
-    background: linear-gradient(
-      transparent,
-      rgba(0, 0, 0, 0.7)
-    ); /* adjust the colors as needed */
-    pointer-events: none;
-  }
-
   .heroTextContainter {
     position: absolute;
     top: 120px;
@@ -150,19 +124,6 @@
     width: 100%;
     max-height: 220px;
     object-fit: cover;
-  }
-
-  .heroBlur {
-    position: absolute;
-    bottom: 587px;
-    left: 0;
-    width: 100%;
-    height: 200px; /* adjust the height of the blur as needed */
-    background: linear-gradient(
-      transparent,
-      rgba(0, 0, 0, 0.7)
-    ); /* adjust the colors as needed */
-    pointer-events: none;
   }
 
   .heroTextContainter {
